@@ -75,7 +75,7 @@ const AboutSection = () => {
                 <FileText className="w-5 h-5 text-primary" /> Bio
               </h3>
               <p className="text-muted-foreground">
-              Final-year B.Tech CSE student at Lovely Professional University, passionate about Machine Learning, Data Science, and Competitive Programming. experienced in solving complex problems using Data Structures and Algorithms, building innovative solutions, and continuously expanding my technical expertise.
+              B.Tech CSE student at Lovely Professional University, passionate about Machine Learning, Data Science, and Competitive Programming. experienced in solving complex problems using Data Structures and Algorithms, building innovative solutions, and continuously expanding my technical expertise.
               </p>
             </motion.div>
 
