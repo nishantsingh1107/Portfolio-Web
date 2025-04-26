@@ -37,7 +37,6 @@ const AchievementsSection = () => {
 
   const handleMouseUp = () => {
     setIsDragging(false);
-
     document.body.style.cursor = "default";
   };
 
@@ -66,20 +65,20 @@ const AchievementsSection = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="section-heading">Certificates</h2>
-          {/* <p className="text-muted-foreground max-w-2xl mb-12">
-            A collection of my professional accomplishments, awards, and
+          {/* <p className="text-muted-foreground max-w-3xl mb-6">
+            A collection of my professional accomplishments, and
             certifications earned throughout my journey.
           </p> */}
         </motion.div>
 
         <div className="flex justify-between mb-6 space-x-2">
           <div className="flex items-center text-muted-foreground">
-            {/* <Grip className="h-4 w-4 mr-2" /> */}
-            {/* <span className="text-sm hidden md:inline">Drag to explore</span> */}
-            {/* <span className="text-sm md:hidden">Swipe to explore</span> */}
+            <Grip className="h-4 w-4 mr-2" />
+            <span className="text-sm hidden md:inline">Drag to explore</span>
+            <span className="text-sm md:hidden">Swipe to explore</span>
           </div>
           <div className="flex space-x-2">
-            {/* <Button
+            <Button
               onClick={() => scroll("left")}
               variant="outline"
               size="icon"
@@ -96,13 +95,13 @@ const AchievementsSection = () => {
               aria-label="Scroll right"
             >
               <ChevronRight className="h-4 w-4" />
-            </Button> */}
+            </Button>
           </div>
         </div>
 
         <div
           ref={scrollContainerRef}
-          className="flex justify-center overflow-x-auto pb-6 space-x-6 snap-x scrollbar-hidden cursor-grab"
+          className="flex overflow-x-auto pb-6 space-x-6 snap-x scrollbar-hidden cursor-grab"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
@@ -111,7 +110,7 @@ const AchievementsSection = () => {
           {achievements.map((achievement) => (
             <motion.div
               key={achievement.id}
-              className="min-w-[360px] max-w-[360px] bg-card p-6 rounded-lg shadow-sm border border-border snap-center select-none"
+              className="min-w-[300px] max-w-[300px] bg-card p-6 rounded-lg shadow-sm border border-border snap-center select-none flex flex-col" // Added flex flex-col here
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
@@ -146,17 +145,19 @@ const AchievementsSection = () => {
               <p className="text-base font-normal text-muted-foreground mb-4">
                 {achievement.description}
               </p>
+
+              {/* Badge positioned at bottom-left */}
               <span
-                className={`text-xs px-2 py-1 rounded-full ${
+                className={`text-xs px-2 py-1 rounded-full cursor-pointer mt-auto self-start ${
                   achievement.type === "competition"
                     ? "bg-yellow-100/80 text-yellow-800 dark:bg-yellow-950 dark:text-yellow-300"
                     : achievement.type === "academic"
                     ? "bg-blue-100/80 text-blue-800 dark:bg-blue-950 dark:text-blue-300"
                     : "bg-green-100/80 text-green-800 dark:bg-green-950 dark:text-green-300"
                 }`}
+                onClick={() => window.open(achievement.certificateLink, "_blank")}
               >
-                {achievement.type.charAt(0).toUpperCase() +
-                  achievement.type.slice(1)}
+                {achievement.type.charAt(0).toUpperCase() + achievement.type.slice(1)}
               </span>
             </motion.div>
           ))}

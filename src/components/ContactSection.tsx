@@ -28,7 +28,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     const formPayload = {
-      access_key: "6c14b370-ac51-45bc-b933-1a3ed381b3d1",
+      access_key: "f966027e-b872-4c4c-a198-c3e33343d4af",
       ...formData,
     };
 
@@ -164,7 +164,7 @@ const ContactSection = () => {
               <input
                 type="hidden"
                 name="access_key"
-                value="6c14b370-ac51-45bc-b933-1a3ed381b3d1"
+                value="f966027e-b872-4c4c-a198-c3e33343d4af"
               />
               <input
                 type="hidden"
